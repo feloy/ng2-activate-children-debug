@@ -1,6 +1,5 @@
+import { PizzaCanActivateService } from './pizza-can-activate.service';
 import { PizzaService } from './pizza.service';
-import { ReginaCanActivateService } from './regina-can-activate.service';
-import { MargheritaCanActivateService } from './margherita-can-activate.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -27,8 +26,7 @@ import { HomeComponent } from './home/home.component';
   ],
   providers: [
     PizzaService,
-    MargheritaCanActivateService,
-    ReginaCanActivateService
+    PizzaCanActivateService
   ],
   bootstrap: [AppComponent]
 })

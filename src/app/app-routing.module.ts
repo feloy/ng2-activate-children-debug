@@ -1,5 +1,5 @@
-import { ReginaCanActivateService } from './regina-can-activate.service';
-import { MargheritaCanActivateService } from './margherita-can-activate.service';
+import { PizzaService } from './pizza.service';
+import { PizzaCanActivateService } from './pizza-can-activate.service';
 import { ReginaComponent } from './regina/regina.component';
 import { MargheritaComponent } from './margherita/margherita.component';
 import { HomeComponent } from './home/home.component';
@@ -8,10 +8,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent,
+    path: '', component: HomeComponent, canActivateChild: [ PizzaCanActivateService ],
     children: [
-      { path: '', component: MargheritaComponent, canActivate: [ MargheritaCanActivateService ] },
-      { path: '', component: ReginaComponent, canActivate: [ ReginaCanActivateService ] }
+      { path: '', component: MargheritaComponent, data: { type: PizzaService.PIZZA_MARGHERITA } },
+      { path: '', component: ReginaComponent, data: { type: PizzaService.PIZZA_REGINA } }
     ]
   }
 ];
